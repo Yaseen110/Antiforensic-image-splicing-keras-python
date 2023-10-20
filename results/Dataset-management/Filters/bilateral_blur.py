@@ -1,0 +1,17 @@
+import cv2 as cv
+from skimage.metrics import structural_similarity
+img=cv.imread("bg5.jpg")
+cv.imshow('header',img)
+average =cv.bilateralFilter(img,5,30,30) 
+cv.imshow('average',average)
+average2 =cv.bilateralFilter(img,5,50,50) 
+cv.imshow('average2',average2)
+average3 =cv.bilateralFilter(img,5,100,100) 
+cv.imshow('average3',average3)
+(score1, diff1) = structural_similarity(img, average, full=True,channel_axis=2)
+(score2, diff2) = structural_similarity(img, average2, full=True,channel_axis=2)
+(score3, diff3) = structural_similarity(img, average3, full=True,channel_axis=2)
+print("Image similarity", score1)
+print("Image similarity", score2)
+print("Image similarity", score3)
+cv.waitKey(0)

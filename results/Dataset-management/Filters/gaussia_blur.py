@@ -1,0 +1,10 @@
+import cv2 as cv 
+img=cv.imread("bg5.jpg")
+cv.imshow('header',img)
+blur1=cv.GaussianBlur(img,(3,3),cv.BORDER_DEFAULT)
+blur2=cv.GaussianBlur(img,(5,5),cv.BORDER_DEFAULT)
+blur3=cv.GaussianBlur(img,(7,7),cv.BORDER_DEFAULT)
+cv.imshow('blur1',blur1)
+cv.imshow('blur2',blur2)
+cv.imshow('blur3',blur3)
+cv.waitKey(0)
